@@ -12,9 +12,4 @@ stateDiagram-v2
 
     Wait --> EscapeRight :LeftSensor
     EscapeRight --> Wait :0.2sec
-    Wait --> Confusion :TakenOffHandle
-    state Confusion {
-        Roll --> Erupt
-    }
-    Confusion --> [*] :10sec
 ```
