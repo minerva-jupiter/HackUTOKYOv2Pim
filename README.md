@@ -13,3 +13,7 @@ stateDiagram-v2
     Wait --> EscapeRight :LeftSensor
     EscapeRight --> Wait :0.2sec
 ```
+
+## 参考
+https://pongsuke.hatenablog.com/entry/2019/08/08/172359
+https://dev.classmethod.jp/articles/raspberrypi-opencv-monitoring/
