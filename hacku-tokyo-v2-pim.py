@@ -4,6 +4,7 @@ import RPi.GPIO as GPIO
 import time
 import sys
 import cv2
+import os
 
 stepPin = 22
 dircPin = 17
@@ -41,7 +42,6 @@ def main():
         if cv2.waitKey(1) != -1:
             break
     
-    turnR
     GPIO.cleanup()
 
 #逆かもしれない
