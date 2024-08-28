@@ -107,31 +107,11 @@ keep = [[0] * 32 for i in range(24)]
 
 busy = True
 
-while(True):
-    ret, frame = cap.read()
-
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) 
-    mos = mosaic(gray)
-    count = dump(gray, keep)
-
-    print('{0} {1}'.format(count,busy))
-    if(count[0] >= 50):
-        escapeL
-    elif(count[1] >= 50):
-        escapeR
-
-    cv2.imshow('frame',frame)
-    cv2.imshow('mos',mos)
-
-    if cv2.waitKey(1) != -1:
-        break
-
-cap.release()
-cv2.destroyAllWindows()
-
-
 try:
         main()
 except KeyboardInterrupt:
         print('interrupted!')
         GPIO.cleanup()
+
+cap.release()
+cv2.destroyAllWindows()
