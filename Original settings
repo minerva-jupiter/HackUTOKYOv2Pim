@@ -1,0 +1,2 @@
+私のスマホ(simなし)のテザリングにraspberry piがつながるように設定した。
+raspberry piを操作したい際は、ssh pi@raspberrypi.localで解決する。なお、raspberry pi のパスは"pi"
