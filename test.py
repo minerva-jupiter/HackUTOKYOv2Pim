@@ -1,13 +1,16 @@
 import RPi.GPIO as GPIO
+import time
 
 stepPin = 22
 dircPin = 17
 enabPin = 23
+num = 100
 
 GPIO.setmode(GPIO.BCM)  # GPIOで指定
 GPIO.setup(enabPin, GPIO.OUT)   # 2:Enableに定義
 GPIO.setup(dircPin, GPIO.OUT)   # 3:Dir
 GPIO.setup(stepPin, GPIO.OUT)   # 4:Step
+print("setup was completed")
 
 #GPIO.setup(17, GPIO.OUT)#17:MS1
 #GPIO.setup(27, GPIO.OUT)#27:MS2
