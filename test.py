@@ -28,8 +28,10 @@ def main():
 
         if count[0] >= camLimit:
             if count[0] > count[1]:
+                print("R>L")
                 escapeR
             else:
+                print("R<L")
                 escapeL
             print("RL same!")
         elif count[1] >= camLimit:
