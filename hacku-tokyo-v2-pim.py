@@ -52,7 +52,8 @@ def main():
             break
 
         print(place)
-
+        
+    GPIO.output(enabPin,1)
     GPIO.cleanup()
 
 #逆かもしれない
