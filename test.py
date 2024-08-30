@@ -10,7 +10,7 @@ stepPin = 22
 dircPin = 17
 enabPin = 23
 
-camLimit = 5
+camLimit = 0
 
 #GPIO.setup(17, GPIO.OUT)#17:MS1
 #GPIO.setup(27, GPIO.OUT)#27:MS2
