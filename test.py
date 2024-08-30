@@ -24,6 +24,7 @@ def main():
         mos = mosaic(gray)
         count = dump(gray, keep)
              
+        print(count)
         if count[0] >= camLimit:
             if count[1] < camLimit:
                 escapeR
