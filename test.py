@@ -19,7 +19,12 @@ print("setup was completed")
 def main():
     GPIO.output(enabPin, 1)
     print("enable setted 1")
-    escapeR
+    for i in range(0,200):
+        print(i)
+        GPIO.output(stepPin, 1)
+        time.sleep(0.001)
+        GPIO.output(stepPin, 0)
+        time.sleep(0.001)
     GPIO.cleanup()
 
 #逆かもしれない
@@ -31,6 +36,7 @@ def escapeR():
             GPIO.output(stepPin, 0)
             time.sleep(0.001)
     time.sleep(1)
+    
 def escapeL():
     GPIO.output(dircPin, 1)
     for i in range(0,200):
