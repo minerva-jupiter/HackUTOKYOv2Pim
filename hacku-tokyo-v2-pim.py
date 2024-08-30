@@ -57,7 +57,7 @@ def main():
 
 #逆かもしれない
 def escapeR(place):
-    if(place >= 1500):
+    if(place >= 30):
         return
     else:
         GPIO.output(dircPin, 1)
