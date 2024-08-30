@@ -12,7 +12,6 @@ enabPin = 23
 
 camLimit = 5
 
-place = 0
 
 GPIO.setmode(GPIO.BCM)  # GPIOで指定
 GPIO.setup(enabPin, GPIO.OUT)   # 2:Enableに定義
@@ -24,7 +23,7 @@ GPIO.setup(stepPin, GPIO.OUT)   # 4:Step
 #GPIO.setup(22, GPIO.OUT)#22:MS3
 
 def main():
-
+    place = 0
     GPIO.output(enabPin, 0)
     for i in range(0,15):
         place = escapeR(place)
