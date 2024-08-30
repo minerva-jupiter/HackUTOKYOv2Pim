@@ -21,13 +21,11 @@ GPIO.setup(stepPin, GPIO.OUT)   # 4:Step
 #GPIO.setup(27, GPIO.OUT)#27:MS2
 #GPIO.setup(22, GPIO.OUT)#22:MS3
 
-placeN = 0
-
 def main():
+    place = 0
     GPIO.output(enabPin, 0)
-    placeN = 0
     for i in range(0,15):
-        escapeR
+        place = escapeR()
 
     while(True):
         ret, frame = cap.read()
@@ -41,12 +39,12 @@ def main():
         if count[0] >= camLimit:
             if count[0] > count[1]:
                 print("R>L")
-                escapeR()
+                place = escapeR()
             else:
                 print("R<L")
-                escapeL()
+                place = escapeL()
         elif count[1] >= camLimit:
-            escapeL()
+            place = escapeL()
         
         if cv2.waitKey(1) != -1:
             break
@@ -54,29 +52,33 @@ def main():
     GPIO.cleanup()
 
 #逆かもしれない
-def escapeR():
-    if(placeN >= 1500):
+def escapeR(place):
+    if(place >= 1500):
         return
-    print("escapeR")
-    GPIO.output(dircPin, 1)
-    for num in range(0,100):
+    else:
+        print("escapeR")
+        GPIO.output(dircPin, 1)
+        for num in range(0,100):
             GPIO.output(stepPin, 1)
             time.sleep(0.001)
             GPIO.output(stepPin, 0)
             time.sleep(0.001)
-    placeN += 1
+        place += 1
+    return place
 
-def escapeL():
+def escapeL(place):
     print("escapeL")
-    if(placeN <= 0):
-        return
-    GPIO.output(dircPin, 0)
-    for num in range(0,100):
+    if(place <= 0):
+        return place
+    else:
+        GPIO.output(dircPin, 0)
+        for num in range(0,100):
             GPIO.output(stepPin, 1)
             time.sleep(0.001)
             GPIO.output(stepPin, 0)
             time.sleep(0.001)
-    placeN += 1
+        place += 1
+    return place
 
 def mosaic(src):
     dst = cv2.resize(src, None, fx=0.1, fy=0.1, interpolation=cv2.INTER_NEAREST)
@@ -121,11 +123,11 @@ keep = [[0] * 32 for i in range(24)]
 busy = True
 
 try:
-        main()
+    main()
 except KeyboardInterrupt:
-        print('interrupted!')
-        GPIO.output(enabPin,1)
-        GPIO.cleanup()
+    print('interrupted!')
+    GPIO.output(enabPin,1)
+    GPIO.cleanup()
 
 cap.release()
 cv2.destroyAllWindows()
