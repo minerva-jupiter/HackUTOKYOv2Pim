@@ -35,16 +35,16 @@ def main():
         if count[0] >= camLimit:
             if count[0] > count[1]:
                 print("R>L")
-                escapeR
+                escapeR()
             else:
                 print("R<L")
-                escapeL
+                escapeL()
         elif count[1] >= camLimit:
-            escapeL
+            escapeL()
         
         if cv2.waitKey(1) != -1:
             break
-        
+
 def mosaic(src):
     dst = cv2.resize(src, None, fx=0.1, fy=0.1, interpolation=cv2.INTER_NEAREST)
     return cv2.resize(dst, src.shape[:2][::-1], interpolation=cv2.INTER_NEAREST)
