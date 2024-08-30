@@ -79,7 +79,7 @@ def escapeL(place):
             time.sleep(0.001)
             GPIO.output(stepPin, 0)
             time.sleep(0.001)
-        place += 1
+        place -= 1
     return place
 
 def mosaic(src):
