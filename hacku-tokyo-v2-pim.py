@@ -12,6 +12,8 @@ enabPin = 23
 
 camLimit = 5
 
+place = 0
+
 GPIO.setmode(GPIO.BCM)  # GPIOで指定
 GPIO.setup(enabPin, GPIO.OUT)   # 2:Enableに定義
 GPIO.setup(dircPin, GPIO.OUT)   # 3:Dir
@@ -22,10 +24,10 @@ GPIO.setup(stepPin, GPIO.OUT)   # 4:Step
 #GPIO.setup(22, GPIO.OUT)#22:MS3
 
 def main():
-    place = 0
+
     GPIO.output(enabPin, 0)
     for i in range(0,15):
-        place = escapeR()
+        place = escapeR(place)
 
     while(True):
         ret, frame = cap.read()
@@ -39,12 +41,12 @@ def main():
         if count[0] >= camLimit:
             if count[0] > count[1]:
                 print("R>L")
-                place = escapeR()
+                place = escapeR(place)
             else:
                 print("R<L")
-                place = escapeL()
+                place = escapeL(place)
         elif count[1] >= camLimit:
-            place = escapeL()
+            place = escapeL(place)
         
         if cv2.waitKey(1) != -1:
             break
