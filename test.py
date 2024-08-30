@@ -17,7 +17,8 @@ print("setup was completed")
 #GPIO.setup(22, GPIO.OUT)#22:MS3
 
 def main():
-    GPIO.output(enabPin, 0)
+    GPIO.output(enabPin, 1)
+    print("enable seted 0")
     while(True):
         escapeR
     GPIO.cleanup()
