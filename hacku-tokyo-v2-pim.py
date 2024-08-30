@@ -27,6 +27,7 @@ def main():
     GPIO.output(enabPin, 0)
     for i in range(0,15):
         place = escapeR(place)
+        print(place)
 
     while(True):
         ret, frame = cap.read()
@@ -101,7 +102,7 @@ def dump(src, keep):
             diff = difference(keep[y][x],target)
             if diff > 50:
                 str += '{:02} '.format(diff) 
-                if(y >= 12):
+                if(y >= 16):
                      RightCount += 1
                 else:
                      LeftCount += 1
