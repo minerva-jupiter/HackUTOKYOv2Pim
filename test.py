@@ -25,6 +25,7 @@ def main():
         time.sleep(0.001)
         GPIO.output(stepPin, 0)
         time.sleep(0.001)
+    GPIO.output(enabPin, 1)
     GPIO.cleanup()
 
 #逆かもしれない
