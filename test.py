@@ -32,7 +32,8 @@ def main():
                 escapeL
         elif count[1] >= camLimit:
             escapeL
-
+        
+        print("noEscape")
         if cv2.waitKey(1) != -1:
             break
 
