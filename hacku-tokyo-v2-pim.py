@@ -59,6 +59,7 @@ def main():
 #逆かもしれない
 def escapeR(place):
     if(place >= 16):
+        print("over16")
         return place
     else:
         GPIO.output(dircPin, 1)
@@ -67,11 +68,12 @@ def escapeR(place):
             time.sleep(0.001)
             GPIO.output(stepPin, 0)
             time.sleep(0.001)
-        place -= 1
+        place += 1
     return place
 
 def escapeL(place):
     if(place <= 0):
+        print("under0")
         return place
     else:
         GPIO.output(dircPin, 0)
@@ -80,7 +82,7 @@ def escapeL(place):
             time.sleep(0.001)
             GPIO.output(stepPin, 0)
             time.sleep(0.001)
-        place += 1
+        place -= 1
     return place
 
 def mosaic(src):
