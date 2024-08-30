@@ -86,7 +86,7 @@ def dump(src, keep):
     return count
 # 仕様メモcount=[RightCount,LeftCount]
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(-1)
 
 cap.set(3,320) # WIDTH
 cap.set(4,240) # HEIGHT
