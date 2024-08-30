@@ -36,5 +36,5 @@ try:
 except KeyboardInterrupt:
         print('interrupted!')
         GPIO.cleanup()
-
+GPIO.cleanup()
 cv2.destroyAllWindows()
