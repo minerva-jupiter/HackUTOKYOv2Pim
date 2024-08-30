@@ -17,7 +17,7 @@ print("setup was completed")
 #GPIO.setup(22, GPIO.OUT)#22:MS3
 
 def main():
-    GPIO.output(enabPin, 1)
+    GPIO.output(enabPin, 0)
     print("enable setted 1")
     for i in range(0,200):
         print(i)
