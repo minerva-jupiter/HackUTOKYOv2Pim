@@ -25,6 +25,8 @@ def main():
         count = dump(gray, keep)
              
         print(count)
+
+        print(count[0] >= camLimit)
         if count[0] >= camLimit:
             if count[0] > count[1]:
                 escapeR
@@ -33,7 +35,6 @@ def main():
         elif count[1] >= camLimit:
             escapeL
         
-        print("noEscape")
         if cv2.waitKey(1) != -1:
             break
 
