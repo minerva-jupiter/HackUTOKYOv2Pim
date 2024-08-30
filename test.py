@@ -17,27 +17,11 @@ camLimit = 5
 #GPIO.setup(22, GPIO.OUT)#22:MS3
 
 def main():
-    while(True):
-        ret, frame = cap.read()
-
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) 
-        mos = mosaic(gray)
-        count = dump(gray, keep)
-             
-        print(count)
-
-        if count[0] >= camLimit:
-            if count[0] > count[1]:
-                print("R>L")
-                escapeR()
-            else:
-                print("R<L")
-                escapeL()
-        elif count[1] >= camLimit:
-            escapeL()
-        
-        if cv2.waitKey(1) != -1:
-            break
+    for num in range(0,200):
+            GPIO.output(stepPin, 1)
+            time.sleep(0.001)
+            GPIO.output(stepPin, 0)
+            time.sleep(0.001)
 
 
 #逆かもしれない
