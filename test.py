@@ -26,12 +26,12 @@ def main():
              
         print(count)
 
-        print(count[0] >= camLimit)
         if count[0] >= camLimit:
             if count[0] > count[1]:
                 escapeR
             else:
                 escapeL
+            print("RL same!")
         elif count[1] >= camLimit:
             escapeL
         
