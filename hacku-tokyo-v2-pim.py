@@ -23,6 +23,7 @@ GPIO.setup(stepPin, GPIO.OUT)   # 4:Step
 
 def main():
     GPIO.output(enabPin, 0)
+
     while(True):
         ret, frame = cap.read()
 
@@ -30,22 +31,21 @@ def main():
         mos = mosaic(gray)
         count = dump(gray, keep)
              
+        print(count)
+
         if count[0] >= camLimit:
-            if count[1] < camLimit:
-                escapeR
-            elif count[0] > count[1]:
-                escapeR
+            if count[0] > count[1]:
+                print("R>L")
+                escapeR()
             else:
-                escapeL
+                print("R<L")
+                escapeL()
         elif count[1] >= camLimit:
-            escapeL
-
-        cv2.imshow('frame',frame)
-        cv2.imshow('mos',mos)
-
+            escapeL()
+        
         if cv2.waitKey(1) != -1:
             break
-    
+
     GPIO.cleanup()
 
 #逆かもしれない
