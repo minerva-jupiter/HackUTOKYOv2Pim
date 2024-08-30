@@ -40,10 +40,6 @@ def escapeL():
             time.sleep(0.001)
     time.sleep(1)
 
-def mosaic(src):
-    dst = cv2.resize(src, None, fx=0.1, fy=0.1, interpolation=cv2.INTER_NEAREST)
-    return cv2.resize(dst, src.shape[:2][::-1], interpolation=cv2.INTER_NEAREST)
-
 def difference(a, b):
     if(a < b):
         return b - a
@@ -75,12 +71,6 @@ def dump(src, keep):
     return count
 # 仕様メモcount=[RightCount,LeftCount]
 
-cap = cv2.VideoCapture(0)
-
-cap.set(3,320) # WIDTH
-cap.set(4,240) # HEIGHT
-cap.set(5,30) # FPS
-
 keep = [[0] * 32 for i in range(24)]
 
 busy = True
@@ -90,6 +80,3 @@ try:
 except KeyboardInterrupt:
         print('interrupted!')
         GPIO.cleanup()
-
-cap.release()
-cv2.destroyAllWindows()
