@@ -23,7 +23,7 @@ GPIO.setup(stepPin, GPIO.OUT)   # 4:Step
 def main():
     GPIO.output(enabPin, 0)
     print("escapeR")
-    GPIO.output(dircPin, 0)
+    GPIO.output(dircPin, 1)
     for num in range(0,1000):
         GPIO.output(stepPin, 1)
         time.sleep(0.001)
