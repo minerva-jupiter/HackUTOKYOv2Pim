@@ -19,7 +19,7 @@ print("setup was completed")
 def main():
     GPIO.output(enabPin, 0)
     print("enable setted 1")
-    for i in range(0,200):
+    for i in range(0,10000):
         print(i)
         GPIO.output(stepPin, 1)
         time.sleep(0.001)
