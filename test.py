@@ -10,7 +10,7 @@ stepPin = 22
 dircPin = 17
 enabPin = 23
 
-camLimit = 0
+camLimit = 5
 
 #GPIO.setup(17, GPIO.OUT)#17:MS1
 #GPIO.setup(27, GPIO.OUT)#27:MS2
@@ -26,9 +26,7 @@ def main():
              
         print(count)
         if count[0] >= camLimit:
-            if count[1] < camLimit:
-                escapeR
-            elif count[0] > count[1]:
+            if count[0] > count[1]:
                 escapeR
             else:
                 escapeL
