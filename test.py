@@ -1,7 +1,4 @@
 import RPi.GPIO as GPIO
-import time
-import sys
-import os
 
 stepPin = 22
 dircPin = 17
@@ -39,37 +36,6 @@ def escapeL():
             GPIO.output(stepPin, 0)
             time.sleep(0.001)
     time.sleep(1)
-
-def difference(a, b):
-    if(a < b):
-        return b - a
-    return a - b
-
-def kora():
-    os.system('mpg321 -q /home/pi/camera/kora.mp3&')
-
-def dump(src, keep):
-    os.system('clear')
-    RightCount = 0
-    LeftCount = 0
-    for x in range(0, 32):
-        str = ''
-        for y in range(0, 24):
-            target = src[y*10][x*10]    
-            diff = difference(keep[y][x],target)
-            if diff > 50:
-                str += '{:02} '.format(diff) 
-                if(y >= 12):
-                     RightCount += 1
-                else:
-                     LeftCount += 1
-            else:
-                str += '-- '
-            keep[y][x] = target
-        print(str)
-    count=[RightCount,LeftCount]
-    return count
-# 仕様メモcount=[RightCount,LeftCount]
 
 keep = [[0] * 32 for i in range(24)]
 
