@@ -21,8 +21,13 @@ GPIO.setup(stepPin, GPIO.OUT)   # 4:Step
 #GPIO.setup(27, GPIO.OUT)#27:MS2
 #GPIO.setup(22, GPIO.OUT)#22:MS3
 
+placeN = 0
+
 def main():
     GPIO.output(enabPin, 0)
+    placeN = 0
+    for i in range(0,15):
+        escapeR
 
     while(True):
         ret, frame = cap.read()
@@ -50,23 +55,28 @@ def main():
 
 #逆かもしれない
 def escapeR():
+    if(placeN >= 1500):
+        return
     print("escapeR")
-    GPIO.output(dircPin, 0)
-    for num in range(0,200):
+    GPIO.output(dircPin, 1)
+    for num in range(0,100):
             GPIO.output(stepPin, 1)
             time.sleep(0.001)
             GPIO.output(stepPin, 0)
             time.sleep(0.001)
-    time.sleep(1)
+    placeN += 1
+
 def escapeL():
     print("escapeL")
-    GPIO.output(dircPin, 1)
-    for num in range(0,200):
+    if(placeN <= 0):
+        return
+    GPIO.output(dircPin, 0)
+    for num in range(0,100):
             GPIO.output(stepPin, 1)
             time.sleep(0.001)
             GPIO.output(stepPin, 0)
             time.sleep(0.001)
-    time.sleep(1)
+    placeN += 1
 
 def mosaic(src):
     dst = cv2.resize(src, None, fx=0.1, fy=0.1, interpolation=cv2.INTER_NEAREST)
@@ -114,6 +124,7 @@ try:
         main()
 except KeyboardInterrupt:
         print('interrupted!')
+        GPIO.output(enabPin,1)
         GPIO.cleanup()
 
 cap.release()
