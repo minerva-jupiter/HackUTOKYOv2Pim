@@ -63,13 +63,14 @@ def dump(src, keep):
             diff = difference(keep[y][x],target)
             if diff > 50:
                 str += '{:02} '.format(diff) 
-                if(y >= 12):
+                if(x >= 16):
                      RightCount += 1
                 else:
                      LeftCount += 1
             else:
                 str += '-- '
             keep[y][x] = target
+        print(str)
     count=[RightCount,LeftCount]
     return count
 # 仕様メモcount=[RightCount,LeftCount]
