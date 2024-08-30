@@ -10,6 +10,8 @@ stepPin = 22
 dircPin = 17
 enabPin = 23
 
+camLimit = 5
+
 GPIO.setmode(GPIO.BCM)  # GPIOで指定
 GPIO.setup(enabPin, GPIO.OUT)   # 2:Enableに定義
 GPIO.setup(dircPin, GPIO.OUT)   # 3:Dir
@@ -27,14 +29,16 @@ def main():
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) 
         mos = mosaic(gray)
         count = dump(gray, keep)
-
-        print('{0} {1}'.format(count,busy))
-        if busy and count==0:
-            busy = False
-
-        if busy == False and count > 5:
-            busy = True
-            kora()
+             
+        if count[0] >= camLimit:
+            if count[1] < camLimit:
+                escapeR
+            elif count[0] > count[1]:
+                escapeR
+            else:
+                escapeL
+        elif count[1] >= camLimit:
+            escapeL
 
         cv2.imshow('frame',frame)
         cv2.imshow('mos',mos)
@@ -46,6 +50,7 @@ def main():
 
 #逆かもしれない
 def escapeR():
+    print("escapeR")
     GPIO.output(dircPin, 0)
     for num in range(0,200):
             GPIO.output(stepPin, 1)
@@ -54,6 +59,7 @@ def escapeR():
             time.sleep(0.001)
     time.sleep(1)
 def escapeL():
+    print("escapeL")
     GPIO.output(dircPin, 1)
     for num in range(0,200):
             GPIO.output(stepPin, 1)
@@ -70,9 +76,6 @@ def difference(a, b):
     if(a < b):
         return b - a
     return a - b
-
-def kora():
-    os.system('mpg321 -q /home/pi/camera/kora.mp3&')
 
 def dump(src, keep):
     os.system('clear')
