@@ -50,6 +50,8 @@ def main():
         if cv2.waitKey(1) != -1:
             break
 
+        print(place)
+
     GPIO.cleanup()
 
 #逆かもしれない
@@ -57,7 +59,6 @@ def escapeR(place):
     if(place >= 1500):
         return
     else:
-        print("escapeR")
         GPIO.output(dircPin, 1)
         for num in range(0,100):
             GPIO.output(stepPin, 1)
@@ -68,7 +69,6 @@ def escapeR(place):
     return place
 
 def escapeL(place):
-    print("escapeL")
     if(place <= 0):
         return place
     else:
