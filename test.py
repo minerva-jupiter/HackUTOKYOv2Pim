@@ -17,16 +17,15 @@ print("setup was completed")
 #GPIO.setup(22, GPIO.OUT)#22:MS3
 
 def main():
-    GPIO.output(enabPin, 1)
-    print("enable seted 0")
-    while(True):
-        escapeR
+    GPIO.output(enabPin, 0)
+    print("enable setted 0")
+    escapeR
     GPIO.cleanup()
 
 #逆かもしれない
 def escapeR():
     GPIO.output(dircPin, 0)
-    for num in range(0,200):
+    for i in range(0,200):
             GPIO.output(stepPin, 1)
             time.sleep(0.001)
             GPIO.output(stepPin, 0)
@@ -34,14 +33,12 @@ def escapeR():
     time.sleep(1)
 def escapeL():
     GPIO.output(dircPin, 1)
-    for num in range(0,200):
+    for i in range(0,200):
             GPIO.output(stepPin, 1)
             time.sleep(0.001)
             GPIO.output(stepPin, 0)
             time.sleep(0.001)
     time.sleep(1)
-
-keep = [[0] * 32 for i in range(24)]
 
 busy = True
 
