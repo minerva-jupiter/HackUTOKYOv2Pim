@@ -60,7 +60,7 @@ def escapeR(place):
     if(place >= 50):
         return place
     else:
-        GPIO.output(dircPin, 0)
+        GPIO.output(dircPin, 1)
         for num in range(0,100):
             GPIO.output(stepPin, 1)
             time.sleep(0.001)
@@ -73,7 +73,7 @@ def escapeL(place):
     if(place <= 0):
         return place
     else:
-        GPIO.output(dircPin, 1)
+        GPIO.output(dircPin, 0)
         for num in range(0,100):
             GPIO.output(stepPin, 1)
             time.sleep(0.001)
