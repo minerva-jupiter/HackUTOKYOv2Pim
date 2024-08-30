@@ -70,7 +70,6 @@ def dump(src, keep):
             else:
                 str += '-- '
             keep[y][x] = target
-        print(str)
     count=[RightCount,LeftCount]
     return count
 # 仕様メモcount=[RightCount,LeftCount]
