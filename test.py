@@ -21,6 +21,7 @@ GPIO.setup(dircPin, GPIO.OUT)   # 3:Dir
 GPIO.setup(stepPin, GPIO.OUT)   # 4:Step
 
 def main():
+    GPIO.output(enabPin, 0)
     print("escapeR")
     GPIO.output(dircPin, 0)
     for num in range(0,1000):
@@ -36,6 +37,6 @@ try:
 except KeyboardInterrupt:
     print('interrupted!')
     GPIO.cleanup()
-    
+
 GPIO.cleanup()
 cv2.destroyAllWindows()
