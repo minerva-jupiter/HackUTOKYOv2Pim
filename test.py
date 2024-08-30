@@ -16,12 +16,6 @@ camLimit = 5
 #GPIO.setup(27, GPIO.OUT)#27:MS2
 #GPIO.setup(22, GPIO.OUT)#22:MS3
 
-#逆かもしれない
-def escapeR():
-    print("escapeR")
-def escapeL():
-    print("escapeL")
-
 def main():
     while(True):
         ret, frame = cap.read()
@@ -44,6 +38,15 @@ def main():
         
         if cv2.waitKey(1) != -1:
             break
+
+
+#逆かもしれない
+def escapeR():
+    print("escapeR")
+def escapeL():
+    print("escapeL")
+
+
 
 def mosaic(src):
     dst = cv2.resize(src, None, fx=0.1, fy=0.1, interpolation=cv2.INTER_NEAREST)
