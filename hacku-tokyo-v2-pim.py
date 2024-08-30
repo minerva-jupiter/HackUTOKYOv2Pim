@@ -39,7 +39,7 @@ def main():
         print(count)
 
         if count[1] >= camLimit:
-            if count[1] > count[1]:
+            if count[1] > count[0]:
                 print("R>L")
                 place = escapeR(place)
             else:
