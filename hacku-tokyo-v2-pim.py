@@ -58,7 +58,7 @@ def main():
 #逆かもしれない
 def escapeR(place):
     if(place >= 30):
-        return
+        return place
     else:
         GPIO.output(dircPin, 1)
         for num in range(0,100):
@@ -102,7 +102,7 @@ def dump(src, keep):
             diff = difference(keep[y][x],target)
             if diff > 50:
                 str += '{:02} '.format(diff) 
-                if(y >= 16):
+                if(x >= 16):
                      RightCount += 1
                 else:
                      LeftCount += 1
