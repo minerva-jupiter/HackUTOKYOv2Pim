@@ -121,7 +121,7 @@ cap = cv2.VideoCapture(-1)
 
 cap.set(3,320) # WIDTH
 cap.set(4,240) # HEIGHT
-cap.set(5,10) # FPS
+cap.set(5,30) # FPS
 
 keep = [[0] * 32 for i in range(24)]
 
