@@ -95,7 +95,7 @@ def difference(a, b):
     return a - b
 
 def dump(src, keep):
-    #os.system('clear')
+    os.system('clear')
     RightCount = 0
     LeftCount = 0
     for x in range(0, 32):
@@ -112,7 +112,7 @@ def dump(src, keep):
             else:
                 str += '-- '
             keep[y][x] = target
-        #print(str)
+        print(str)
     count=[RightCount,LeftCount]
     return count
 # 仕様メモcount=[RightCount,LeftCount]
