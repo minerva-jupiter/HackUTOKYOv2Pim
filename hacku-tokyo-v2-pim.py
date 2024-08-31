@@ -98,14 +98,14 @@ def dump(src, keep):
     os.system('clear')
     RightCount = 0
     LeftCount = 0
-    for x in range(0, 32):
+    for y in range(0, 108):
         str = ''
-        for y in range(0, 24):
+        for x in range(0, 192):
             target = src[y*10][x*10]    
             diff = difference(keep[y][x],target)
             if diff > 50:
                 str += '{:02} '.format(diff) 
-                if(x >= 16):
+                if(x >= 96):
                      RightCount += 1
                 else:
                      LeftCount += 1
@@ -119,9 +119,9 @@ def dump(src, keep):
 
 cap = cv2.VideoCapture(-1)
 
-cap.set(3,320) # WIDTH
-cap.set(4,240) # HEIGHT
-cap.set(5,30) # FPS
+cap.set(3,1920) # WIDTH
+cap.set(4,1080) # HEIGHT
+cap.set(5,10) # FPS
 
 keep = [[0] * 32 for i in range(24)]
 
