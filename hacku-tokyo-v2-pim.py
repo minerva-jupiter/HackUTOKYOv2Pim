@@ -10,7 +10,7 @@ stepPin = 22
 dircPin = 17
 enabPin = 23
 
-camLimit = 5
+camLimit = 20
 
 
 GPIO.setmode(GPIO.BCM)  # GPIOで指定
@@ -103,7 +103,7 @@ def dump(src, keep):
         for y in range(0, 24):
             target = src[y*10][x*10]    
             diff = difference(keep[y][x],target)
-            if diff > 50:
+            if diff > 70:
                 str += '{:02} '.format(diff) 
                 if(x >= 16):
                      RightCount += 1
