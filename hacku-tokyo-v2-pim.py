@@ -38,14 +38,14 @@ def main():
              
         print(count)
 
-        if count[1] >= camLimit:
-            if count[1] > count[0]:
+        if count[0] >= camLimit:
+            if count[0] > count[1]:
                 print("R>L")
                 place = escapeR(place)
             else:
                 print("R<L")
                 place = escapeL(place)
-        elif count[0] >= camLimit:
+        elif count[1] >= camLimit:
             place = escapeL(place)
         
         if cv2.waitKey(1) != -1:
