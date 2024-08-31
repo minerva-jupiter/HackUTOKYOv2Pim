@@ -25,7 +25,7 @@ GPIO.setup(stepPin, GPIO.OUT)   # 4:Step
 def main():
     place = 0
     GPIO.output(enabPin, 0)
-    for i in range(0,8):
+    for i in range(0,4):
         place = escapeR(place)
         print(place)
 
@@ -58,12 +58,12 @@ def main():
 
 #逆かもしれない
 def escapeR(place):
-    if(place >= 16):
+    if(place >= 7):
         print("over16")
         return place
     else:
         GPIO.output(dircPin, 1)
-        for num in range(0,1000):
+        for num in range(0,500):
             GPIO.output(stepPin, 1)
             time.sleep(0.001)
             GPIO.output(stepPin, 0)
@@ -77,7 +77,7 @@ def escapeL(place):
         return place
     else:
         GPIO.output(dircPin, 0)
-        for num in range(0,1000):
+        for num in range(0,500):
             GPIO.output(stepPin, 1)
             time.sleep(0.001)
             GPIO.output(stepPin, 0)
